@@ -1,9 +1,9 @@
 class MoviesController < ApplicationController
 	def get_movies
-		@movie = Movie.first
+		@movies = Movie.all
 		
 		respond_to do |format|
-			format.json  { render :json => @movie.to_json }
+			format.json  { render :json => @movies.to_json }
   	end
 	end
 end
