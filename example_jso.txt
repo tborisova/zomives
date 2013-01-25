@@ -1,0 +1,6 @@
+{"created_at": "some datetime",
+"descripttion" : "text",
+"name": "string",
+"year": integer,
+"genre": "string",
+"updated_at": "some datetime"}
