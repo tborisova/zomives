@@ -15,27 +15,38 @@ namespace :fill_database do
 	
 	def create_entries source
 		doc = Nokogiri::HTML(source)
-		rows = doc.xpath('//table[@class="results"]/tr/td[@class="image"]/a')
+		movie_name_rows = doc.xpath('//table[@class="results"]/tr/td[@class="title"]/a')
+		movie_year_rows = doc.xpath('//table[@class="results"]/tr/td[@class="title"]/span[@class="year_type"]')
 		rows_with_actors = doc.xpath('//table[@class="results"]/tr/td[@class="title"]/span[@class="credit"]')
-		row = rows[0]
-		
-		rows.each_with_index do |row,index|
-			name = row.child.attributes["alt"].value
-      year = name[/\(.*?\)/].delete("(").delete(")")
-    	movie = Movie.new(:name=>name, :year=>year.to_i,:genre=>"action")  		
+		movie_desc = doc.xpath('//table[@class="results"]/tr/td[@class="title"]/span[@class="outline"]')
+
+		movie_name_rows.each_with_index do |row,index|
+			name = row.children[0].text
+      year = movie_year_rows[index].children[0].text.delete("(").delete(")")
+      desc = movie_desc[index].children[0].text if movie_desc[index] 
+    	movie = Movie.new(:name=>name, :year=>year.to_i,:genre=>"action",:description=>desc)  		
 			
 			index_of_with = get_index rows_with_actors, index
 		
 			next if index_of_with == nil 
 			
+			1.step(index_of_with,2) do |i|
+				dir = Director.find_or_create_by_name(rows_with_actors[index].children[i].children.text)
+				movie.directors << dir
+			end
+			
 			index_of_with += 1	
 			while (rows_with_actors[index].children[index_of_with] != nil) do
+					
+					
 					movie.actors << Actor.find_or_create_by_name(rows_with_actors[index].children[index_of_with].children.text)
+					
 					index_of_with += 2
 			end
 			
 			movie.save
 		end
+		
 	end
 	
 	def get_index rows_with_actors,index 
