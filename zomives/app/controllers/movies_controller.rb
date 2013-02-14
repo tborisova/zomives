@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-	def show
+	def index
 		@movies = Movie.all
 		
 		respond_to do |format|
