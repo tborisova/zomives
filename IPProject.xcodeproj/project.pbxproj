@@ -17,7 +17,8 @@
 		ADC349FB16CB81DB0036E514 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC349FA16CB81DB0036E514 /* Default@2x.png */; };
 		ADC349FD16CB81DB0036E514 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC349FC16CB81DB0036E514 /* Default-568h@2x.png */; };
 		ADC34A0016CB81DB0036E514 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC349FE16CB81DB0036E514 /* MainStoryboard.storyboard */; };
-		ADC34A0316CB81DB0036E514 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34A0216CB81DB0036E514 /* ViewController.m */; };
+		ADC34A0B16CB89170036E514 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34A0A16CB89170036E514 /* MoviesViewController.m */; };
+		ADC34A0E16CB89760036E514 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34A0D16CB89760036E514 /* Movie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +36,10 @@
 		ADC349FA16CB81DB0036E514 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ADC349FC16CB81DB0036E514 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ADC349FF16CB81DB0036E514 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		ADC34A0116CB81DB0036E514 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ADC34A0216CB81DB0036E514 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ADC34A0916CB89170036E514 /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
+		ADC34A0A16CB89170036E514 /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
+		ADC34A0C16CB89760036E514 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		ADC34A0D16CB89760036E514 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +89,10 @@
 				ADC349F516CB81DB0036E514 /* AppDelegate.h */,
 				ADC349F616CB81DB0036E514 /* AppDelegate.m */,
 				ADC349FE16CB81DB0036E514 /* MainStoryboard.storyboard */,
-				ADC34A0116CB81DB0036E514 /* ViewController.h */,
-				ADC34A0216CB81DB0036E514 /* ViewController.m */,
+				ADC34A0C16CB89760036E514 /* Movie.h */,
+				ADC34A0D16CB89760036E514 /* Movie.m */,
+				ADC34A0916CB89170036E514 /* MoviesViewController.h */,
+				ADC34A0A16CB89170036E514 /* MoviesViewController.m */,
 				ADC349ED16CB81DB0036E514 /* Supporting Files */,
 			);
 			path = IPProject;
@@ -175,7 +180,8 @@
 			files = (
 				ADC349F316CB81DB0036E514 /* main.m in Sources */,
 				ADC349F716CB81DB0036E514 /* AppDelegate.m in Sources */,
-				ADC34A0316CB81DB0036E514 /* ViewController.m in Sources */,
+				ADC34A0B16CB89170036E514 /* MoviesViewController.m in Sources */,
+				ADC34A0E16CB89760036E514 /* Movie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
