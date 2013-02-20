@@ -1,7 +1,7 @@
 Zomives::Application.routes.draw do
   get "index/index"
 	
-	match '/get_movies(.:format)' => "movies#get_movies", :via=>[:get,:post]
+	match '/movies(.:format)' => "movies#index", :via=>[:post]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
