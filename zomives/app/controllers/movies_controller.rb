@@ -9,20 +9,22 @@ class MoviesController < ApplicationController
 	
 	#GET /movies/search?у=2012&mtitle=movie title1&aname=actor_name&dname=director_name
 	def search
-		if params[:mtitle]
+		if params[:mtitle] #VALIDATION
 			@movies = Movie.find_all_by_name params[:mtitle]
+	  elsif params[:aname] && params[:y] && params[:dname]
+	  	@movies = Movie.director(params[:dname]).cast(params[:aname]).year(params[:y])
 	  elsif params[:aname] && params[:y]
-			@movies = Movie.joins(:actors).where(:actors=>{:name=>params[:aname]},:movies=>{:year=>params[:y]})
+			@movies = Movie.cast(params[:aname]).year(params[:y])
 		elsif params[:dname] && params[:y]
-			@movies = Movie.joins(:directors).where(:directors=>{:name=>params[:dname]},:movies=>{:year=>params[:y]})
+			@movies = Movie.director(params[:dname]).year(params[:y])
 		elsif params[:dname] && params[:aname]
-			@movies = Movie.joins(:directors,:actors).where(:directors=>{:name=>params[:dname]},:actors=>{:name=>params[:aname]})
-	  elsif params[:y] #add check for validation
-			@movies = Movie.find_all_by_year params[:y]
+			@movies = Movie.director(params[:dname]).cast(params[:aname])
+	  elsif params[:y]
+			@movies = Movie.year params[:y]
 		elsif params[:aname] 
-			@movies = Movie.joins(:actors).where(:actors=>{:name=>params[:aname]})
+			@movies = Movie.cast params[:aname]
 		elsif params[:dname] 
-			@movies = Movie.joins(:directors).where(:directors=>{:name=>params[:dname]})
+			@movies = Movie.director params[:dname]
 		end
 		
 		respond_to do |format|
