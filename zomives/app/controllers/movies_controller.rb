@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
 			elsif params[:aname] && params[:y] && params[:dname]
 				@movies = Movie.director(params[:dname]).cast(params[:aname]).year(params[:y]) - Movie.watched_by(user.id).director(params[:dname]).cast(params[:aname]).year(params[:y])
 			elsif params[:aname] && params[:y]
-				@movies = Movie.cast(params[:aname]).year(params[:y]) - Movie.watched_by(user.id)cast(params[:aname]).year(params[:y])
+				@movies = Movie.cast(params[:aname]).year(params[:y]) - Movie.watched_by(user.id).cast(params[:aname]).year(params[:y])
 			elsif params[:dname] && params[:y]
 				@movies = Movie.director(params[:dname]).year(params[:y])
 			elsif params[:dname] && params[:aname]
