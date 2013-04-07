@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Movie.h"
 @interface MoreInfoViewController : UIViewController
+
+@property Movie *movie;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *movieName;
+
+- (void)setMovieObject:(Movie*)newMovie;
+
 
 @end

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD1925DA16D60A8600521E1A /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1925D916D60A8600521E1A /* MoreInfoViewController.m */; };
+		AD5599A916F1BACB002269D8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD5599A716F1BACB002269D8 /* Model.xcdatamodeld */; };
+		AD5599AC16F1BCC3002269D8 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5599AB16F1BCC3002269D8 /* Movie.m */; };
+		AD5599AF16F1BDA9002269D8 /* ArticleObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5599AE16F1BDA9002269D8 /* ArticleObjectManager.m */; };
+		AD5599B216F1BE95002269D8 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5599B116F1BE95002269D8 /* DataModel.m */; };
+		AD5599B416F1C40E002269D8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5599B316F1C40E002269D8 /* CoreData.framework */; };
 		ADC349E716CB81DB0036E514 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC349E616CB81DB0036E514 /* UIKit.framework */; };
 		ADC349E916CB81DB0036E514 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC349E816CB81DB0036E514 /* Foundation.framework */; };
 		ADC349EB16CB81DB0036E514 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC349EA16CB81DB0036E514 /* CoreGraphics.framework */; };
@@ -18,10 +24,22 @@
 		ADC349FD16CB81DB0036E514 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADC349FC16CB81DB0036E514 /* Default-568h@2x.png */; };
 		ADC34A0016CB81DB0036E514 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC349FE16CB81DB0036E514 /* MainStoryboard.storyboard */; };
 		ADC34A0B16CB89170036E514 /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34A0A16CB89170036E514 /* MoviesViewController.m */; };
-		ADC34A0E16CB89760036E514 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC34A0D16CB89760036E514 /* Movie.m */; };
+		DBCF4ACB91254F17B4335A14 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B1FAF86CA3C4E54A8B0A573 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B4B186BD3084156B4A3F2A3 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		8B1FAF86CA3C4E54A8B0A573 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD1925D816D60A8600521E1A /* MoreInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInfoViewController.h; sourceTree = "<group>"; };
+		AD1925D916D60A8600521E1A /* MoreInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInfoViewController.m; sourceTree = "<group>"; };
+		AD5599A816F1BACB002269D8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		AD5599AA16F1BCC3002269D8 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		AD5599AB16F1BCC3002269D8 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		AD5599AD16F1BDA9002269D8 /* ArticleObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleObjectManager.h; sourceTree = "<group>"; };
+		AD5599AE16F1BDA9002269D8 /* ArticleObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleObjectManager.m; sourceTree = "<group>"; };
+		AD5599B016F1BE95002269D8 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = ../DataModel.h; sourceTree = "<group>"; };
+		AD5599B116F1BE95002269D8 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataModel.m; path = ../DataModel.m; sourceTree = "<group>"; };
+		AD5599B316F1C40E002269D8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		ADC349E316CB81DB0036E514 /* IPProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADC349E616CB81DB0036E514 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ADC349E816CB81DB0036E514 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -38,8 +56,6 @@
 		ADC349FF16CB81DB0036E514 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		ADC34A0916CB89170036E514 /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
 		ADC34A0A16CB89170036E514 /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
-		ADC34A0C16CB89760036E514 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		ADC34A0D16CB89760036E514 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,9 +63,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD5599B416F1C40E002269D8 /* CoreData.framework in Frameworks */,
 				ADC349E716CB81DB0036E514 /* UIKit.framework in Frameworks */,
 				ADC349E916CB81DB0036E514 /* Foundation.framework in Frameworks */,
 				ADC349EB16CB81DB0036E514 /* CoreGraphics.framework in Frameworks */,
+				DBCF4ACB91254F17B4335A14 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +80,7 @@
 				ADC349EC16CB81DB0036E514 /* IPProject */,
 				ADC349E516CB81DB0036E514 /* Frameworks */,
 				ADC349E416CB81DB0036E514 /* Products */,
+				5B4B186BD3084156B4A3F2A3 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,9 +95,11 @@
 		ADC349E516CB81DB0036E514 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD5599B316F1C40E002269D8 /* CoreData.framework */,
 				ADC349E616CB81DB0036E514 /* UIKit.framework */,
 				ADC349E816CB81DB0036E514 /* Foundation.framework */,
 				ADC349EA16CB81DB0036E514 /* CoreGraphics.framework */,
+				8B1FAF86CA3C4E54A8B0A573 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -86,11 +107,18 @@
 		ADC349EC16CB81DB0036E514 /* IPProject */ = {
 			isa = PBXGroup;
 			children = (
+				AD5599B016F1BE95002269D8 /* DataModel.h */,
+				AD5599B116F1BE95002269D8 /* DataModel.m */,
+				AD5599AD16F1BDA9002269D8 /* ArticleObjectManager.h */,
+				AD5599AE16F1BDA9002269D8 /* ArticleObjectManager.m */,
 				ADC349F516CB81DB0036E514 /* AppDelegate.h */,
 				ADC349F616CB81DB0036E514 /* AppDelegate.m */,
 				ADC349FE16CB81DB0036E514 /* MainStoryboard.storyboard */,
-				ADC34A0C16CB89760036E514 /* Movie.h */,
-				ADC34A0D16CB89760036E514 /* Movie.m */,
+				AD1925D816D60A8600521E1A /* MoreInfoViewController.h */,
+				AD1925D916D60A8600521E1A /* MoreInfoViewController.m */,
+				AD5599A716F1BACB002269D8 /* Model.xcdatamodeld */,
+				AD5599AA16F1BCC3002269D8 /* Movie.h */,
+				AD5599AB16F1BCC3002269D8 /* Movie.m */,
 				ADC34A0916CB89170036E514 /* MoviesViewController.h */,
 				ADC34A0A16CB89170036E514 /* MoviesViewController.m */,
 				ADC349ED16CB81DB0036E514 /* Supporting Files */,
@@ -122,6 +150,7 @@
 				ADC349DF16CB81DB0036E514 /* Sources */,
 				ADC349E016CB81DB0036E514 /* Frameworks */,
 				ADC349E116CB81DB0036E514 /* Resources */,
+				036CCF2D251B409DA2DCEEE4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,6 +202,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		036CCF2D251B409DA2DCEEE4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ADC349DF16CB81DB0036E514 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -181,7 +227,11 @@
 				ADC349F316CB81DB0036E514 /* main.m in Sources */,
 				ADC349F716CB81DB0036E514 /* AppDelegate.m in Sources */,
 				ADC34A0B16CB89170036E514 /* MoviesViewController.m in Sources */,
-				ADC34A0E16CB89760036E514 /* Movie.m in Sources */,
+				AD1925DA16D60A8600521E1A /* MoreInfoViewController.m in Sources */,
+				AD5599A916F1BACB002269D8 /* Model.xcdatamodeld in Sources */,
+				AD5599AC16F1BCC3002269D8 /* Movie.m in Sources */,
+				AD5599AF16F1BDA9002269D8 /* ArticleObjectManager.m in Sources */,
+				AD5599B216F1BE95002269D8 /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +315,7 @@
 		};
 		ADC34A0716CB81DB0036E514 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B4B186BD3084156B4A3F2A3 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IPProject/IPProject-Prefix.pch";
@@ -276,6 +327,7 @@
 		};
 		ADC34A0816CB81DB0036E514 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B4B186BD3084156B4A3F2A3 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IPProject/IPProject-Prefix.pch";
@@ -304,8 +356,22 @@
 				ADC34A0816CB81DB0036E514 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AD5599A716F1BACB002269D8 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AD5599A816F1BACB002269D8 /* Model.xcdatamodel */,
+			);
+			currentVersion = AD5599A816F1BACB002269D8 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ADC349DB16CB81DB0036E514 /* Project object */;
 }

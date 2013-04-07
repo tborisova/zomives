@@ -8,8 +8,10 @@
 
 #import "MoreInfoViewController.h"
 
-@interface MoreInfoViewController ()
 
+@interface MoreInfoViewController ()
+@property NSString* text;
+@property NSString* name;
 @end
 
 @implementation MoreInfoViewController
@@ -33,6 +35,23 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"text: %@", self.textView.text);
+    self.textView.text = self.text;
+    self.movieName.text = self.name;
+
+}
+
+- (void)setMovieObject:(Movie*)newMovie
+{
+   // _movie = newMovie;
+        
+    self.text = newMovie.movieDescription;
+    self.name = newMovie.name;
+    
 }
 
 @end

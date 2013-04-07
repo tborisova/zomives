@@ -6,17 +6,16 @@
 //  Copyright (c) 2013 Nick Nikolov. All rights reserved.
 //
 
-#import "MNSArticleObjectManager.h"
-#import "MNSArticle.h"
+#import "ArticleObjectManager.h"
 #import <RestKit/RestKit.h>
-#import "MNSDataModel.h"
+#import "DataModel.h"
+#import "Movie.h"
 
-#define feedBaseURLString @"/rss_feed_loader/newer_articles"
 
-@interface MNSArticleObjectManager ()
+@interface ArticleObjectManager ()
 @end
 
-@implementation MNSArticleObjectManager
+@implementation ArticleObjectManager
 
 + (RKObjectManager *)createNewManager
 {
@@ -25,46 +24,33 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         RKEntityMapping *articleMapping = [self mapArticle];
-        RKManagedObjectStore *managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
-        __sharedObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
+        RKManagedObjectStore *managedObjectStore = [[DataModel sharedDataModel] objectStore];
+        __sharedObjectManager = [RKObjectManager managerWithBaseURL:
+                                 [NSURL URLWithString:@"http://mysterious-plateau-8544.herokuapp.com"]];
         __sharedObjectManager.managedObjectStore = managedObjectStore;
         [__sharedObjectManager addResponseDescriptorsFromArray: @[
-                    [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/newer_articles.json"],
-                    [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/older_articles.json"],
-                    [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/newer_articles.json"],
-                    [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/older_articles.json"]]];
+                    [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/movies.json"]]];
     });
     
-    return __sharedObjectManager;
-//    RKEntityMapping *articleMapping = [self mapArticle];
-//    RKManagedObjectStore *managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
-//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
-//    objectManager.managedObjectStore = managedObjectStore;
-//    [objectManager addResponseDescriptorsFromArray: @[
-//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/newer_articles.json"],
-//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/older_articles.json"],
-//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/newer_articles.json"],
-//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/older_articles.json"]]];
-//    
-//    return objectManager;
-//    
-    
+    return __sharedObjectManager;    
 
 }
 
 + (RKEntityMapping *)mapArticle
 {
     RKEntityMapping *articleMapping = [RKEntityMapping
-                                       mappingForEntityForName:@"MNSArticle"
-                                       inManagedObjectStore:[[MNSDataModel sharedDataModel] objectStore]];
+                                       mappingForEntityForName:@"Movie"
+                                       inManagedObjectStore:[[DataModel sharedDataModel] objectStore]];
     
     [articleMapping addAttributeMappingsFromDictionary:@{
-     @"id"  :   @"articleID",
-     @"url" :   @"urlString"
+     @"id"  :   @"movieID",
+     @"created_at" : @"createdAt",
+     @"updated_at" : @"updatedAt",
+     @"description" : @"movieDescription",
      }];
-    [articleMapping addAttributeMappingsFromArray:@[@"title", @"author", @"content", @"pubdate"]];
+    [articleMapping addAttributeMappingsFromArray:@[@"name", @"genre", @"year"]];
     
-    articleMapping.identificationAttributes = @[@"title", @"articleID"];
+    articleMapping.identificationAttributes = @[@"movieID"];
     
     return articleMapping;
 }

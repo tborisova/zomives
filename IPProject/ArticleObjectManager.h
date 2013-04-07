@@ -11,7 +11,7 @@
 @class RKManagedObjectStore;
 @class RKObjectManager;
 
-@interface MNSArticleObjectManager : NSObject
+@interface ArticleObjectManager : NSObject
 
 @property RKManagedObjectStore *managedObjectStore;
 

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataModel.h"
 
-@interface MoviesViewController : UITableViewController
+@interface MoviesViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @end

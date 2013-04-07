@@ -10,7 +10,7 @@
 
 #import <RestKit/RestKit.h>
 
-@interface MNSDataModel : NSObject
+@interface DataModel : NSObject
 
 @property (nonatomic, strong) RKManagedObjectStore *objectStore;
 

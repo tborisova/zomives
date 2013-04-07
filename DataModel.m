@@ -6,23 +6,23 @@
 //  Copyright (c) 2013 Nick Nikolov. All rights reserved.
 //
 
-#import "MNSDataModel.h"
+#import "DataModel.h"
 #import <CoreData/CoreData.h>
 
 
-@interface MNSDataModel ()
+@interface DataModel ()
 @end
 
 
 
-@implementation MNSDataModel
+@implementation DataModel
 
 
 + (id)sharedDataModel {
-    static MNSDataModel *__sharedDataModel = nil;
+    static DataModel *__sharedDataModel = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        __sharedDataModel = [[MNSDataModel alloc] init];
+        __sharedDataModel = [[DataModel alloc] init];
         [__sharedDataModel setup];
     });
     
@@ -43,7 +43,7 @@
 - (void)setup {
     self.objectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:[self managedObjectModel]];
     
-    NSString *path = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"MusicNewsShuffler.sqlite"];
+    NSString *path = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"Zamovies.sqlite"];
     
     NSLog(@"Setting up store at %@", path);
     

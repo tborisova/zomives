@@ -10,9 +10,17 @@
 
 #import "MoviesViewController.h"
 #import "Movie.h"
+#import "MoreInfoViewController.h"
+#import <RestKit/RestKit.h>
+#import "DataModel.h"
+#import "SVProgressHUD.h"
+#import "ArticleObjectManager.h"
 
-@interface MoviesViewController()
-@property NSArray *movies;
+
+
+
+@interface MoviesViewController() <NSFetchedResultsControllerDelegate>
+@property NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation MoviesViewController
@@ -21,28 +29,47 @@
 {
     [super viewDidLoad];
     
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://localhost:3000/get_movies.json"]];
-        
-        [self performSelectorOnMainThread:@selector(fetchedData:)
-                               withObject:data waitUntilDone:YES];
-        
-        
-    });
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Movie"];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"year" ascending:NO];
+    fetchRequest.sortDescriptors = @[descriptor];
+    
+    
+    RKObjectManager *objectManager = [ArticleObjectManager createNewManager];
+
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:[objectManager managedObjectStore].mainQueueManagedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    
+    [self.fetchedResultsController setDelegate:self];
+    NSError *error = nil;
+    
+    BOOL fetchSuccessful = [self.fetchedResultsController performFetch:&error];
+    
+    if (! fetchSuccessful) {
+        [SVProgressHUD showErrorWithStatus:@"Dang! :("];
+    }
+    
+    
+    [objectManager getObjectsAtPath:@"/movies.json"
+                          parameters:nil
+                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+     {
+         
+         NSLog(@"RESULTTTTTTTT: %@", mappingResult.array);
+                  
+     } failure:^(RKObjectRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"ERROR: %@", error);
+         NSLog(@"Response: %@", operation.HTTPRequestOperation.responseString);
+         
+         
+     }];
+
+
 }
 
-- (void)fetchedData:(NSData *)responseData {
-    //parse out the json data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:responseData
-                          options:kNilOptions
-                          error:&error];
-    
-    self.movies = json;
-    [self.tableView reloadData];
-    
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
@@ -50,9 +77,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    // If you're serving data from an array, return the length of the array:
-    return [self.movies count];
+    
+    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,13 +95,27 @@
         
     }
     
- //   RSSArticle *currItem = _objects[indexPath.row];
-    Movie *movie = [Movie createMovieWithDictionary:[self.movies objectAtIndex:indexPath.row]];
-    
+    Movie* movie = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = movie.name;
+    
     return cell;
 
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"moreInfo"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        
+       // NSLog(@"indexpath: %@", indexPath);
+
+      //  Movie *selectedMovie = [Movie createMovieWithDictionary:[self.movies objectAtIndex:indexPath]];
+        
+//        NSLog(@"%@", selectedMovie.movieDescription);
+        [(MoreInfoViewController*)[segue destinationViewController] setMovieObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    }
+}
 
 @end
